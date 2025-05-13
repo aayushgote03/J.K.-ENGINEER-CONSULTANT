@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { useEffect } from 'react'
 import Navbar from '@/components/Navbar'
 import ContactForm from '@/components/contactform'
 import Image from 'next/image'
@@ -21,8 +21,16 @@ const staggerContainer = {
 }
 
 const Page = () => {
+  useEffect(() => {
+    // Scroll to the contact form section when the page loads
+    const contactSection = document.getElementById('contact-section');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, []);
+
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative">
       <Navbar />
       
       {/* Hero Section */}
@@ -242,30 +250,6 @@ const Page = () => {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl font-bold text-center mb-16 text-gray-800"
-          >
-            Get in Touch
-          </motion.h2>
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="max-w-4xl mx-auto"
-          >
-            <ContactForm />
-          </motion.div>
-        </div>
-      </section>
-
       {/* Footer */}
       <motion.footer 
         initial={{ opacity: 0 }}
@@ -364,6 +348,11 @@ const Page = () => {
           </motion.div>
         </div>
       </motion.footer>
+
+      {/* Contact Form - Fixed Position */}
+      <div className="fixed bottom-0 right-0 z-[100]">
+        <ContactForm />
+      </div>
     </div>
   )
 }

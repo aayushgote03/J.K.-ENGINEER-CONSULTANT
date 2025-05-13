@@ -86,7 +86,7 @@ const ContactForm: React.FC = () => {
   return (
     <div className="relative">
       {/* Contact Button */}
-      <div className="fixed bottom-6 right-6 z-40 flex items-center space-x-3">
+      <div className="fixed bottom-6 right-6 z-[100] flex items-center space-x-3">
         <a
           href="https://wa.me/919766545560"
           target="_blank"
@@ -112,7 +112,7 @@ const ContactForm: React.FC = () => {
       </div>
 
       {/* Form Modal */}
-      <div className={`fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center transition-opacity duration-300 ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+      <div className={`fixed inset-0 bg-black bg-opacity-50 z-[101] flex items-center justify-center transition-opacity duration-300 ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
         <div 
           className={`bg-white rounded-xl shadow-2xl w-full max-w-3xl mx-4 overflow-hidden transition-all duration-500 transform ${isOpen ? 'scale-100' : 'scale-95'}`}
           onClick={e => e.stopPropagation()}
