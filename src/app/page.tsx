@@ -70,7 +70,7 @@ const Page = () => {
       </section>
 
       {/* Services Section */}
-      <section className="py-20 bg-white">
+      <section id="services" className="py-20 bg-white">
         <div className="container mx-auto px-4 text-black">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
